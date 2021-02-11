@@ -10,60 +10,69 @@ Dark green: #28b485
 * {
     margin: 0; 
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;          /*https://developer.mozilla.org/es/docs/Web/CSS/box-sizing*/
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #777;
-    padding: 30px;
+    font-family: "Lato", sans-serif; /*https://developer.mozilla.org/es/docs/Web/CSS/@font-face/font-family*/
+    font-weight: 400;                /*https://developer.mozilla.org/es/docs/Web/CSS/font-weight*/
+    font-size: 16px;                 /*https://developer.mozilla.org/es/docs/Web/CSS/font-size*/
+    line-height: 1.7;                /*https://developer.mozilla.org/es/docs/Web/CSS/line-height*/
+    color: #777;                   /*https://developer.mozilla.org/es/docs/Web/CSS/color_value*/
+    padding: 30px;                   /*https://developer.mozilla.org/es/docs/Web/CSS/padding*/
 }
 
 .header {
-    height: 95vh;
-    background-image: linear-gradient(
+    height: 95vh;                           /*https://developer.mozilla.org/es/docs/Web/CSS/height*/ 
+                                            /*Note: vh representa que la altura de la imagen va a ser un 95% alta respecto 
+                                            al total del espacio*/
+    background-image: linear-gradient(      /*https://developer.mozilla.org/es/docs/Web/CSS/background-image*/   
+                                            /*https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient()*/
         to right bottom, 
         rgba(126, 213, 111, 0.80), 
-        rgb(40, 180, 133, 0.80)
+        rgba(40, 180, 133, 0.80)
         ), 
         url(../img/hero.jpg);
-    background-size: cover;
-    background-position: top;
-    position: relative;
+    background-size: cover;                 /*https://developer.mozilla.org/es/docs/Web/CSS/background-size*/
+    background-position: top;               /*https://developer.mozilla.org/es/docs/Web/CSS/background-position*/
+    position: relative;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
 
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*https://developer.mozilla.org/es/docs/Web/CSS/clip-path*/
+                                                        /*Note: dale forma a tu imagen con esta url que tye facilita los porcentajes:*/
+                                                        /*https://bennettfeely.com/clippy/*/
 }
 
 .logo-box {
-    position: absolute;
-    top: 40px;
-    left: 40px;
+    position: absolute;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
+    top: 40px;                              /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
+    left: 40px;                             /*https://developer.mozilla.org/es/docs/Web/CSS/left*/
 }
 
 .logo {
-    height: 35px;
+    height: 35px;                           /*https://developer.mozilla.org/es/docs/Web/CSS/@viewport/height*/
 }
 
 .text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
+    top: 40%;                               /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
+    left: 50%;                              /*https://developer.mozilla.org/es/docs/Web/CSS/left*/
+    transform: translate(-50%, -50%);       /*https://developer.mozilla.org/es/docs/Web/SVG/Attribute/transform*/  
+                                            /*La propiedad transform: translate() me permite ubicar la "caja" del texto en
+                                            todo el centro ya que inicialmente la coordenada 0,0 es la referencia que toma la caja
+                                            respecto a su contenedor. Top y left corresponden a su contenedor mientras que transform
+                                            corresponde al elemento como tal.*/  
 }
 
 .heading-primary {
     color: #FFF;
-    text-transform: uppercase;
+    text-transform: uppercase;              /*https://developer.mozilla.org/es/docs/Web/CSS/text-transform*/
 }
 
 .heading-primary-main {
-    display: block;
+    display: block;                         /*https://developer.mozilla.org/es/docs/Web/CSS/display*/
     font-size: 60px;
     font-weight: 400;
-    letter-spacing: 35px;
+    letter-spacing: 35px;                   /*https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing*/
 }
 
 .heading-primary-sub {
