@@ -66,6 +66,10 @@ body {
 .heading-primary {
     color: #FFF;
     text-transform: uppercase;              /*https://developer.mozilla.org/es/docs/Web/CSS/text-transform*/
+
+    backface-visibility: hidden;            /*En el tutorial las letras tienene un ligero movimiento hacia arriba una vez culmina la
+                                              animcación, practicamente despreciable. En mi browser no noté eso la verdad. Como
+                                              información ==> https://developer.mozilla.org/es/docs/Web/CSS/backface-visibility */
 }
 
 .heading-primary-main {
@@ -73,6 +77,16 @@ body {
     font-size: 60px;
     font-weight: 400;
     letter-spacing: 35px;                   /*https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing*/
+
+    animation-name: moveInLeft; /*Acá llamas al "método" que está declarado líneas mas abajo para que la animación sea aplicada a ese
+                                bloque del html.*/
+    animation-duration: 1s;
+    animation-timing-function: ease-out;    /*https://developer.mozilla.org/es/docs/Web/CSS/animation-timing-function*/
+    /* 
+    
+    animation-iteration-count: 3; repite la acción n veces se lo indiques.
+    animation-delay: 3s; tiempo especificado antes de iniciar la animación.
+    */
 }
 
 .heading-primary-sub {
@@ -80,4 +94,40 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+
+    animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;                         /*https://developer.mozilla.org/es/docs/Web/CSS/opacity*/
+        transform: translateX(-100px);
+    }
+
+    80% {
+        transform: translateX(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;                         
+        transform: translateX(100px);
+    }
+
+    80% {
+        transform: translateX(-10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
 }
