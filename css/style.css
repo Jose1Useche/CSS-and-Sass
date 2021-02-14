@@ -134,6 +134,18 @@ body {
     }
 }
 
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;                         
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .btn:link,
 .btn:visited {                                 /*https://developer.mozilla.org/es/docs/Web/CSS/:link*/
     text-transform: uppercase;
@@ -142,6 +154,7 @@ body {
     display: inline-block;
     border-radius: 100px;                      /*https://developer.mozilla.org/es/docs/Web/CSS/border-radius*/
     transition: all .2; /*La transición se edeclara en el estado inicial y aplica para el resto de los estados.*/
+    position: relative; /*Servirá de referencia para la declaracion position: absolute; de mas abajo*/
 }
 
 .btn:hover {
@@ -157,4 +170,31 @@ body {
 .btn-white {
     background-color: #FFF;
     color: #777;
+}
+
+.btn::after {                                   /*https://developer.mozilla.org/es/docs/Web/CSS/::after*/
+    content: "";                                /*https://developer.mozilla.org/es/docs/Web/CSS/content*/
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1; 
+    transition: all .4s;                               /*https://developer.mozilla.org/es/docs/Web/CSS/z-index*/
+}
+
+.btn-white::after {
+    background-color: white;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom .5s ease-out .75s;
+    animation-fill-mode: backwards;                     /*https://developer.mozilla.org/es/docs/Web/CSS/animation-fill-mode*/
 }
