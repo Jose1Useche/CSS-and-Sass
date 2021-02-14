@@ -61,6 +61,7 @@ body {
                                             todo el centro ya que inicialmente la coordenada 0,0 es la referencia que toma la caja
                                             respecto a su contenedor. Top y left corresponden a su contenedor mientras que transform
                                             corresponde al elemento como tal.*/  
+    text-align: center; /*alíneo todos los textos contenidos acá adentro, incluyendo mi <a> boton.*/
 }
 
 .heading-primary {
@@ -70,6 +71,7 @@ body {
     backface-visibility: hidden;            /*En el tutorial las letras tienene un ligero movimiento hacia arriba una vez culmina la
                                               animcación, practicamente despreciable. En mi browser no noté eso la verdad. Como
                                               información ==> https://developer.mozilla.org/es/docs/Web/CSS/backface-visibility */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -130,4 +132,29 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+.btn:link,
+.btn:visited {                                 /*https://developer.mozilla.org/es/docs/Web/CSS/:link*/
+    text-transform: uppercase;
+    text-decoration: none;                     /*https://developer.mozilla.org/es/docs/Web/CSS/text-decoration*/
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;                      /*https://developer.mozilla.org/es/docs/Web/CSS/border-radius*/
+    transition: all .2; /*La transición se edeclara en el estado inicial y aplica para el resto de los estados.*/
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);                   /*https://developer.mozilla.org/es/docs/Web/CSS/box-shadow*/
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #FFF;
+    color: #777;
 }
