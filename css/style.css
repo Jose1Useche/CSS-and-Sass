@@ -7,19 +7,28 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
     margin: 0; 
     padding: 0;
-    box-sizing: border-box;          /*https://developer.mozilla.org/es/docs/Web/CSS/box-sizing*/
+    box-sizing: inherit;          /*https://developer.mozilla.org/es/docs/Web/CSS/box-sizing*/
+}
+
+html {
+    /* font-size: 10px; */
+    font-size: 62.5%; /*por defecto el tamaño de la fuente es 16px. ==> 16px = 100% ==> 10px = ? (regla de tres)*/
 }
 
 body {
     font-family: "Lato", sans-serif; /*https://developer.mozilla.org/es/docs/Web/CSS/@font-face/font-family*/
     font-weight: 400;                /*https://developer.mozilla.org/es/docs/Web/CSS/font-weight*/
-    font-size: 16px;                 /*https://developer.mozilla.org/es/docs/Web/CSS/font-size*/
+    /* font-size: 16px;                 https://developer.mozilla.org/es/docs/Web/CSS/font-size */
     line-height: 1.7;                /*https://developer.mozilla.org/es/docs/Web/CSS/line-height*/
     color: #777;                   /*https://developer.mozilla.org/es/docs/Web/CSS/color_value*/
-    padding: 30px;                   /*https://developer.mozilla.org/es/docs/Web/CSS/padding*/
+    /* padding: 30px;                   https://developer.mozilla.org/es/docs/Web/CSS/padding */
+    padding: 3rem;
+    box-sizing: border-box;
 }
 
 .header {
@@ -44,12 +53,15 @@ body {
 
 .logo-box {
     position: absolute;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
-    top: 40px;                              /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
-    left: 40px;                             /*https://developer.mozilla.org/es/docs/Web/CSS/left*/
+    /* top: 40px;                              /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
+    /* left: 40px;                             https://developer.mozilla.org/es/docs/Web/CSS/left */ 
+    top: 4rem;
+    left: 4rem;
 }
 
 .logo {
-    height: 35px;                           /*https://developer.mozilla.org/es/docs/Web/CSS/@viewport/height*/
+    /* height: 35px;                           https://developer.mozilla.org/es/docs/Web/CSS/@viewport/height */
+    height: 3.5rem;
 }
 
 .text-box {
@@ -71,14 +83,17 @@ body {
     backface-visibility: hidden;            /*En el tutorial las letras tienene un ligero movimiento hacia arriba una vez culmina la
                                               animcación, practicamente despreciable. En mi browser no noté eso la verdad. Como
                                               información ==> https://developer.mozilla.org/es/docs/Web/CSS/backface-visibility */
-    margin-bottom: 60px;
+    /* margin-bottom: 60px; */
+    margin-bottom: 6rem;
 }
 
 .heading-primary-main {
     display: block;                         /*https://developer.mozilla.org/es/docs/Web/CSS/display*/
-    font-size: 60px;
+    /* font-size: 60px; */
+    font-size: 6rem;
     font-weight: 400;
-    letter-spacing: 35px;                   /*https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing*/
+    /* letter-spacing: 35px;                   https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing */
+    letter-spacing: 3.5rem;
 
     animation-name: moveInLeft; /*Acá llamas al "método" que está declarado líneas mas abajo para que la animación sea aplicada a ese
                                 bloque del html.*/
@@ -93,9 +108,11 @@ body {
 
 .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    /* font-size: 20px; */
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    /* letter-spacing: 17.4px; */
+    letter-spacing: 1.74rem;
 
     animation-name: moveInRight;
     animation-duration: 1s;
@@ -105,11 +122,13 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;                         /*https://developer.mozilla.org/es/docs/Web/CSS/opacity*/
-        transform: translateX(-100px);
+        /* transform: translateX(-100px); */
+        transform: translateX(-10rem);
     }
 
     80% {
-        transform: translateX(10px);
+        /* transform: translateX(10px); */
+        transform: translateX(1rem);
     }
 
     100% {
@@ -121,11 +140,13 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;                         
-        transform: translateX(100px);
+        /* transform: translateX(100px); */
+        transform: translateX(10rem);
     }
 
     80% {
-        transform: translateX(-10px);
+        /* transform: translateX(-10px); */
+        transform: translateX(-1rem);
     }
 
     100% {
@@ -137,7 +158,8 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;                         
-        transform: translateY(30px);
+        /* transform: translateY(30px); */
+        transform: translateY(3rem);
     }
 
     100% {
@@ -150,21 +172,26 @@ body {
 .btn:visited {                                 /*https://developer.mozilla.org/es/docs/Web/CSS/:link*/
     text-transform: uppercase;
     text-decoration: none;                     /*https://developer.mozilla.org/es/docs/Web/CSS/text-decoration*/
-    padding: 15px 40px;
+    /* padding: 15px 40px; */
+    padding: 1.5rem 4rem;
     display: inline-block;
-    border-radius: 100px;                      /*https://developer.mozilla.org/es/docs/Web/CSS/border-radius*/
-    transition: all .2; /*La transición se edeclara en el estado inicial y aplica para el resto de los estados.*/
+    /* border-radius: 100px;                      https://developer.mozilla.org/es/docs/Web/CSS/border-radius */
+    border-radius: 10rem;
+    transition: all .2; /*La transición se declara en el estado inicial y aplica para el resto de los estados.*/
     position: relative; /*Servirá de referencia para la declaracion position: absolute; de mas abajo*/
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);                   /*https://developer.mozilla.org/es/docs/Web/CSS/box-shadow*/
+    /* box-shadow: 0 10px 20px rgba(0, 0, 0, .2);                   https://developer.mozilla.org/es/docs/Web/CSS/box-shadow */
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    /* box-shadow: 0 5px 10px rgba(0, 0, 0, .2); */
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white {
