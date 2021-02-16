@@ -51,7 +51,7 @@ body {
                                                         /*https://bennettfeely.com/clippy/*/
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
     /* top: 40px;                              /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
     /* left: 40px;                             https://developer.mozilla.org/es/docs/Web/CSS/left */ 
@@ -59,12 +59,12 @@ body {
     left: 4rem;
 }
 
-.logo {
+.header__logo {
     /* height: 35px;                           https://developer.mozilla.org/es/docs/Web/CSS/@viewport/height */
     height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
     position: absolute;                     /*https://developer.mozilla.org/es/docs/Web/CSS/position*/
     top: 40%;                               /*https://developer.mozilla.org/es/docs/Web/CSS/top*/
     left: 50%;                              /*https://developer.mozilla.org/es/docs/Web/CSS/left*/
@@ -87,7 +87,7 @@ body {
     margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block;                         /*https://developer.mozilla.org/es/docs/Web/CSS/display*/
     /* font-size: 60px; */
     font-size: 6rem;
@@ -106,7 +106,7 @@ body {
     */
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
     /* font-size: 20px; */
     font-size: 2rem;
@@ -194,7 +194,7 @@ body {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #FFF;
     color: #777;
 }
@@ -212,7 +212,7 @@ body {
     transition: all .4s;                               /*https://developer.mozilla.org/es/docs/Web/CSS/z-index*/
 }
 
-.btn-white::after {
+.btn--white::after {
     background-color: white;
 }
 
@@ -221,7 +221,7 @@ body {
     opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
     animation: moveInBottom .5s ease-out .75s;
     animation-fill-mode: backwards;                     /*https://developer.mozilla.org/es/docs/Web/CSS/animation-fill-mode*/
 }
