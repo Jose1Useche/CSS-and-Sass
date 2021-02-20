@@ -3,125 +3,95 @@ $color-primary-light: #7ed56f;
 $color-primary-dark: #28b485; 
 $color-grey-dark: #777;
 $color-white: #FFF;
+$color-black: #000;
 
 *,
 *::after,
 *::before {
     margin: 0; 
     padding: 0;
-    box-sizing: inherit;          //https://developer.mozilla.org/es/docs/Web/CSS/box-sizing
+    box-sizing: inherit;          
 }
 
 html {
-    /* font-size: 10px; */
-    font-size: 62.5%; //por defecto el tamaño de la fuente es 16px. ==> 16px = 100% ==> 10px = ? (regla de tres)
+    font-size: 62.5%; 
 }
 
 body {
-    font-family: "Lato", sans-serif; //https://developer.mozilla.org/es/docs/Web/CSS/@font-face/font-family
-    font-weight: 400;               //https://developer.mozilla.org/es/docs/Web/CSS/font-weight
-    //font-size: 16px;                 https://developer.mozilla.org/es/docs/Web/CSS/font-size 
-    line-height: 1.7;               //https://developer.mozilla.org/es/docs/Web/CSS/line-height
-    color: $color-grey-dark;                  //https://developer.mozilla.org/es/docs/Web/CSS/color_value
-    //padding: 30px;                   https://developer.mozilla.org/es/docs/Web/CSS/padding 
+    font-family: "Lato", sans-serif; 
+    font-weight: 400;               
+    line-height: 1.7;               
+    color: $color-grey-dark;                  
     padding: 3rem;
     box-sizing: border-box;
 }
 
 .header {
-    height: 95vh;                           //https://developer.mozilla.org/es/docs/Web/CSS/height 
-                                            //Note: vh representa que la altura de la imagen va a ser un 95% alta respecto 
-                                            //al total del espacio
-    background-image: linear-gradient(      //https://developer.mozilla.org/es/docs/Web/CSS/background-image   
-                                            //https://developer.mozilla.org/es/docs/Web/CSS/linear-gradient()
+    height: 95vh;                           
+    background-image: linear-gradient(      
         to right bottom, 
         rgba($color-primary-light, 0.8), //YA ESTO ES SASS 
         rgba($color-primary-dark, 0.8)
         ), 
         url(../img/hero.jpg);
-    background-size: cover;                 //https://developer.mozilla.org/es/docs/Web/CSS/background-size
-    background-position: top;               //https://developer.mozilla.org/es/docs/Web/CSS/background-position
-    position: relative;                     //https://developer.mozilla.org/es/docs/Web/CSS/position
+    background-size: cover;                 
+    background-position: top;               
+    position: relative;                     
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); 
+                                                        
+    &__logo-box {
+        position: absolute;                     
+        top: 4rem;
+        left: 4rem;//
+    }
 
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); //https://developer.mozilla.org/es/docs/Web/CSS/clip-path
-                                                        //Note: dale forma a tu imagen con esta url que tye facilita los porcentajes:
-                                                        //https://bennettfeely.com/clippy/
-}
-
-.header__logo-box {
-    position: absolute;                     //https://developer.mozilla.org/es/docs/Web/CSS/position
-    //top: 40px;                              https://developer.mozilla.org/es/docs/Web/CSS/top
-    //left: 40px;                           //https://developer.mozilla.org/es/docs/Web/CSS/left  
-    top: 4rem;
-    left: 4re//
-}
-
-.header__logo {
-    //height: 35px;                         //https://developer.mozilla.org/es/docs/Web/CSS/@viewport/height 
-    height: 3.5rem;
-}
-
-.header__text-box {
-    position: absolute;                     //https://developer.mozilla.org/es/docs/Web/CSS/position
-    top: 40%;                               //https://developer.mozilla.org/es/docs/Web/CSS/top
-    left: 50%;                              //https://developer.mozilla.org/es/docs/Web/CSS/left
-    transform: translate(-50%, -50%);       //https://developer.mozilla.org/es/docs/Web/SVG/Attribute/transform  
-                                            //La propiedad transform: translate() me permite ubicar la "caja" del texto en
-                                    //todo el centro ya que inicialmente la coordenada 0,0 es la referencia que toma la caja
-                                    //respecto a su contenedor. Top y left corresponden a su contenedor mientras que transform
-                                    //corresponde al elemento como tal.  
-    text-align: center; //alíneo todos los textos contenidos acá adentro, incluyendo mi <a> boton.
+    &__logo {
+        height: 3.5rem;
+    }
+    
+    &__text-box {
+        position: absolute;                    
+        top: 40%;                              
+        left: 50%;                             
+        transform: translate(-50%, -50%);      
+        text-align: center;
+    }
 }
 
 .heading-primary {
     color: $color-white;
-    text-transform: uppercase;              //https://developer.mozilla.org/es/docs/Web/CSS/text-transform
-
-    backface-visibility: hidden;            //En el tutorial las letras tienene un ligero movimiento hacia arriba una vez culmina la
-                                        //animcación, practicamente despreciable. En mi browser no noté eso la verdad. Como
-                                        //información ==> https://developer.mozilla.org/es/docs/Web/CSS/backface-visibility 
-    // margin-bottom: 60px; 
+    text-transform: uppercase;              
+    backface-visibility: hidden;            
     margin-bottom: 6rem;
-}
 
-.heading-primary--main {
-    display: block;                         //https://developer.mozilla.org/es/docs/Web/CSS/display
-    // font-size: 60px; 
-    font-size: 6rem;
-    font-weight: 400;
-    // letter-spacing: 35px;                   https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing 
-    letter-spacing: 3.5rem;
-
-    animation-name: moveInLeft; //Acá llamas al "método" que está declarado líneas mas abajo para que la animación sea aplicada a ese
-                                //bloque del html.
-    animation-duration: 1s;
-    animation-timing-function: ease-out;    //https://developer.mozilla.org/es/docs/Web/CSS/animation-timing-function
-    // animation-iteration-count: 3; repite la acción n veces se lo indiques.
-    // animation-delay: 3s; tiempo especificado antes de iniciar la animación.
-}
-
-.heading-primary--sub {
-    display: block;
-    // font-size: 20px;
-    font-size: 2rem;
-    font-weight: 700;
-    // letter-spacing: 17.4px;
-    letter-spacing: 1.74rem;
-
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+    &--main {
+        display: block;                         
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation-name: moveInLeft; 
+        animation-duration: 1s;
+        animation-timing-function: ease-out;    
+    }
+    
+    &--sub {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
 }
 
 @keyframes moveInLeft {
     0% {
-        opacity: 0;                         //https://developer.mozilla.org/es/docs/Web/CSS/opacity
-        //transform: translateX(-100px); 
+        opacity: 0;                         
         transform: translateX(-10rem);
     }
 
     80% {
-        //transform: translateX(10px); 
         transform: translateX(1rem);
     }
 
@@ -134,12 +104,10 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;                         
-        //transform: translateX(100px); 
         transform: translateX(10rem);
     }
 
     80% {
-        //transform: translateX(-10px); 
         transform: translateX(-1rem);
     }
 
@@ -152,7 +120,6 @@ body {
 @keyframes moveInBottom {
     0% {
         opacity: 0;                         
-        //transform: translateY(30px); 
         transform: translateY(3rem);
     }
 
@@ -162,60 +129,61 @@ body {
     }
 }
 
-.btn:link,
-.btn:visited {                                 //https://developer.mozilla.org/es/docs/Web/CSS/:link
-    text-transform: uppercase;
-    text-decoration: none;                     //https://developer.mozilla.org/es/docs/Web/CSS/text-decoration
-    // padding: 15px 40px; 
-    padding: 1.5rem 4rem;
-    display: inline-block;
-    // border-radius: 100px;                      https://developer.mozilla.org/es/docs/Web/CSS/border-radius 
-    border-radius: 10rem;
-    transition: all .2; //La transición se declara en el estado inicial y aplica para el resto de los estados.
-    position: relative; //Servirá de referencia para la declaracion position: absolute; de mas abajo
-    font-size: 1.6rem;
+.btn {
+    &:link,
+    &:visited {                                 
+        text-transform: uppercase;
+        text-decoration: none;                     
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2; 
+        position: relative; 
+        font-size: 1.6rem;
+    }
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, .2);
+        
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+    }
+
+    &--white {
+        background-color: $color-white;
+        color: $color-grey-dark;
+        
+        &::after {
+            background-color: white;
+        }
+    }
+
+    &::after {                                   
+        content: "";                                
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 100px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; 
+        transition: all .4s;                               
+    }
+
+
+
+    &--animated {
+        animation: moveInBottom .5s ease-out .75s;
+        animation-fill-mode: backwards;                     
+    }
 }
 
-.btn:hover {
-    transform: translateY(-3px);
-    // box-shadow: 0 10px 20px rgba(0, 0, 0, .2);                   https://developer.mozilla.org/es/docs/Web/CSS/box-shadow 
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
-}
-
-.btn:active {
-    transform: translateY(-1px);
-    // box-shadow: 0 5px 10px rgba(0, 0, 0, .2); 
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
-}
-
-.btn--white {
-    background-color: $color-white;
-    color: $color-grey-dark;
-}
-
-.btn::after {                                   //https://developer.mozilla.org/es/docs/Web/CSS/::after
-    content: "";                                //https://developer.mozilla.org/es/docs/Web/CSS/content
-    display: inline-block;
-    height: 100%;
-    width: 100%;
-    border-radius: 100px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1; 
-    transition: all .4s;                               //https://developer.mozilla.org/es/docs/Web/CSS/z-index
-}
-
-.btn--white::after {
-    background-color: white;
-}
-
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    opacity: 0;
-}
-
-.btn--animated {
-    animation: moveInBottom .5s ease-out .75s;
-    animation-fill-mode: backwards;                     //https://developer.mozilla.org/es/docs/Web/CSS/animation-fill-mode
-}
