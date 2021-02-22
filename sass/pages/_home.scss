@@ -1,0 +1,6 @@
+.section-about {
+    background-color: $color-grey-light-1;
+    padding: 25rem 0;
+    margin-top: -20rem; //Sabemos que el header tiene un 95% del VH y el 75% en la esquina recortada. Por ello para que el fondo del
+                        //section no tengas espacios en blanco respecto al fondo del header se hace ésta diferencia y se "sube".
+}
