@@ -4,3 +4,20 @@
     margin-top: -20rem; //Sabemos que el header tiene un 95% del VH y el 75% en la esquina recortada. Por ello para que el fondo del
                         //section no tengas espacios en blanco respecto al fondo del header se hace ésta diferencia y se "sube".
 }
+
+.section-features {
+    padding: 20rem 0;
+    background-image: linear-gradient(      
+        to right bottom, 
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)
+        ), 
+        url(../img/nat-4.jpg);
+    background-size: cover;
+    transform: skewY(-7deg); //inclino este contenedor
+    margin-top: -10rem;;
+
+    & > * { //selecciono su hijo directo. En este caso el contenedor con la clase row
+        transform: skewY(7deg);
+    }
+}
