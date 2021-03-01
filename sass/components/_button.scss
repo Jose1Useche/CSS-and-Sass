@@ -10,7 +10,7 @@
         transition: all .2; 
         position: relative; 
         font-size: $default-font-size;
-        z-index: 3;
+        z-index: $profundidad-en-3;
 
         //Change for the <button> element
         border: none;
@@ -61,7 +61,7 @@
         position: absolute;
         top: 0;
         left: 0;
-        z-index: -1; 
+        z-index: $profundidad-menos-1; 
         transition: all .4s;       
     }
 

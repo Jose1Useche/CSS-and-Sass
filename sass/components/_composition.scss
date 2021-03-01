@@ -7,7 +7,7 @@
         border-radius: 2px;
         position: absolute; //Estos elementos serán colocados acorde a una referencia, y la referencia es el primer padre que
                             //se encuentren con la posición seteada a algo. En este caso el padre es .composition
-        z-index: 1;
+        z-index: $profundidad-en-1;
         transition: all .2s;
         outline-offset: 2rem;
 
@@ -28,7 +28,7 @@
             outline: 1.5rem solid $color-primary;
             transform: scale(1.05) translateY(-.5rem);
             box-shadow: 0 2.5rem 4rem rgba($color-black, .4);
-            z-index: 2;
+            z-index: $profundidad-en-2;
         }
     }
 
