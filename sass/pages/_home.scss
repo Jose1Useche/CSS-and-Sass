@@ -3,8 +3,12 @@
     padding: 25rem 0;
     margin-top: -20rem; //Sabemos que el header tiene un 95% del VH y el 75% en la esquina recortada. Por ello para que el fondo del
                         //section no tengas espacios en blanco respecto al fondo del header se hace ésta diferencia y se "sube".
-}
 
+    @include respond(tab-port) {
+        padding: 20rem 0;
+    }
+}
+ 
 .section-features {
     padding: 20rem 0;
     background-image: linear-gradient(      
@@ -20,22 +24,38 @@
     & > * { //selecciono su hijo directo. En este caso el contenedor con la clase row
         transform: skewY(7deg);
     }
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
 }
 
 .section-tours {
     background-color: $color-grey-light-1;
     padding: 25rem 0 15rem 0;
     margin-top: -11rem;
+
+    @include respond(tab-port) {
+        padding: 20rem 0 10rem 0;
+    }
 }
 
 .section-stories {
     position: relative;
     padding: 15rem 0;
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
 }
 
 .section-book {
     padding: 15rem 0;
     background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+
+    @include respond(tab-port) {
+        padding: 10rem 0;
+    }
 }
 
 .book {
